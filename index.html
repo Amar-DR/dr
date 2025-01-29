@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amar's Website</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        /* Animasi Web Developer */
+        .web-dev {
+            font-size: 4rem;
+            display: flex;
+            gap: 10px;
+        }
+
+        .web, .dev {
+            opacity: 0;
+        }
+
+        .web {
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+
+        .dev {
+            animation: fadeIn 1.5s ease-in-out 1.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Amar.com */
+        .amar {
+            font-size: 1rem;
+            margin-top: 20px;
+            opacity: 0;
+            white-space: nowrap;
+            border-right: 3px solid white;
+            overflow: hidden;
+            width: 0;
+            animation: typing 2s steps(10, end) 3s forwards;
+        }
+
+        @keyframes typing {
+            from { width: 0; opacity: 1; }
+            to { width: 9ch; opacity: 1; }
+        }
+
+        /* Halaman 404 */
+        .page {
+            display: none;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .glitch {
+            font-size: 10rem;
+            font-weight: bold;
+            position: relative;
+            display: inline-block;
+            animation: glitch 0.8s infinite alternate;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 3px 0 red, -3px 0 blue; }
+            50% { text-shadow: -3px 0 red, 3px 0 blue; }
+            100% { text-shadow: 3px 0 red, -3px 0 blue; }
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: orange;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background-color: darkorange;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Animasi Awal -->
+    <div class="web-dev" id="webDev">
+        <span class="web">Web</span>
+        <span class="dev">Developer</span>
+    </div>
+
+    <div class="amar" id="amarText">amar.com</div>
+
+    <!-- Halaman 404 -->
+    <div class="page" id="mainPage">
+        <div class="glitch">404</div>
+        <br>
+        <a href="#" class="button">Go to My Profile</a>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.getElementById("webDev").style.display = "none";
+            document.getElementById("amarText").style.display = "block";
+
+            setTimeout(() => {
+                document.getElementById("amarText").style.display = "none";
+                document.getElementById("mainPage").style.display = "block";
+            }, 2500);
+
+        }, 3000);
+    </script>
+
+</body>
+</html>
