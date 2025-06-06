@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Script untuk menu mobile
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    // Memilih semua link di menu mobile DAN di navigasi header utama yang merujuk ke ID bagian
     const navLinks = document.querySelectorAll('#mobile-menu a[href^="#"], header nav a[href^="#"]');
 
     if (mobileMenuButton && mobileMenu) {
@@ -10,17 +9,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
             mobileMenuButton.setAttribute('aria-expanded', !expanded);
             mobileMenu.classList.toggle('hidden');
-            // Ganti ikon burger/close
             mobileMenuButton.querySelectorAll('svg').forEach(svg => svg.classList.toggle('hidden'));
         });
 
-        // Tutup menu mobile setelah link diklik (jika menu mobile terbuka)
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (!mobileMenu.classList.contains('hidden')) {
                     mobileMenuButton.setAttribute('aria-expanded', 'false');
                     mobileMenu.classList.add('hidden');
-                    // Pastikan ikon burger ditampilkan kembali
                     const svgs = mobileMenuButton.querySelectorAll('svg');
                     svgs[0].classList.remove('hidden'); // Burger icon
                     svgs[1].classList.add('hidden'); // Close icon
@@ -38,11 +34,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Efek ketik untuk Hero Section
     const typingTextPlaceholder = document.getElementById('typing-text-placeholder');
     const roles = [
-        "Pengembang Web Kreatif.",
-        "Desainer UI/UX Inovatif.",
-        "Pemecah Masalah Teknis.",
-        "Pembelajar Sepanjang Hayat."
-        // Tambahkan lebih banyak peran/tagline di sini
+        "Tech Explorer",
+        "UI/UX Designer",
+        "Cloud Enthusiast",
+        "Java Developer"
     ];
     let roleIndex = 0;
     let charIndex = 0;
@@ -50,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let isDeleting = false;
 
     function type() {
-        if (!typingTextPlaceholder) return; // Keluar jika elemen tidak ditemukan
+        if (!typingTextPlaceholder) return;
 
         const fullText = roles[roleIndex];
         if (isDeleting) {
@@ -61,41 +56,36 @@ document.addEventListener('DOMContentLoaded', function() {
             charIndex++;
         }
 
-        // Tambahkan kursor yang berkedip menggunakan kelas CSS
         typingTextPlaceholder.innerHTML = `<span>${currentText}</span><span class="typing-cursor"></span>`;
-        // Hapus cursor jika teks selesai diketik sebelum jeda
         if (!isDeleting && charIndex === fullText.length) {
             typingTextPlaceholder.innerHTML = `<span>${currentText}</span>`;
         }
 
-
         let typeSpeed = 150;
         if (isDeleting) {
-            typeSpeed /= 2; // Lebih cepat saat menghapus
+            typeSpeed /= 2;
         }
 
         if (!isDeleting && charIndex === fullText.length) {
-            typeSpeed = 2000; // Jeda sebelum mulai menghapus
+            typeSpeed = 2000;
             isDeleting = true;
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             roleIndex = (roleIndex + 1) % roles.length;
-            typeSpeed = 500; // Jeda sebelum mulai mengetik role baru
+            typeSpeed = 500;
         }
 
         setTimeout(type, typeSpeed);
     }
 
-    // Mulai efek ketik setelah halaman dimuat jika ada peran yang didefinisikan
     if (roles.length > 0 && typingTextPlaceholder) {
-        setTimeout(type, 1000); // Jeda awal sebelum mulai mengetik
+        setTimeout(type, 1000);
     }
 
-
-    // Script untuk menandai link navigasi aktif berdasarkan section yang terlihat
+    // Script untuk menandai link navigasi aktif
     const sections = document.querySelectorAll('main section[id]');
-    const headerNavLinksDesktop = document.querySelectorAll('header .hidden.md\\:block .nav-link'); // Hanya link di nav desktop
-    const headerNavLinksMobile = document.querySelectorAll('#mobile-menu .nav-link'); // Hanya link di nav mobile
+    const headerNavLinksDesktop = document.querySelectorAll('header .hidden.md\\:block .nav-link');
+    const headerNavLinksMobile = document.querySelectorAll('#mobile-menu .nav-link');
 
     function onScroll() {
         let currentSectionId = '';
@@ -103,12 +93,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            if (pageYOffset >= sectionTop - (headerHeight + 40)) { // Tambah buffer sedikit
+            if (pageYOffset >= sectionTop - (headerHeight + 40)) {
                 currentSectionId = section.getAttribute('id');
             }
         });
-        
-        // Update links for desktop
+
         headerNavLinksDesktop.forEach(link => {
             link.classList.remove('nav-link-active');
             if (link.getAttribute('href') === `#${currentSectionId}`) {
@@ -116,15 +105,81 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Update links for mobile
         headerNavLinksMobile.forEach(link => {
-            link.classList.remove('nav-link-active'); // Asumsi style aktif mobile sama atau dikelola terpisah
-             if (link.getAttribute('href') === `#${currentSectionId}`) {
+            link.classList.remove('nav-link-active');
+            if (link.getAttribute('href') === `#${currentSectionId}`) {
                 link.classList.add('nav-link-active');
             }
         });
     }
 
     window.addEventListener('scroll', onScroll);
-    onScroll(); // Panggil sekali saat load untuk menandai link beranda/hero
+    onScroll();
+
+    // Inisialisasi tsParticles
+    tsParticles.load("particles-background", {
+        fpsLimit: 60,
+        particles: {
+            number: {
+                value: 80,
+                density: {
+                    enable: true,
+                    value_area: 800
+                }
+            },
+            color: {
+                value: "#ffffff"
+            },
+            shape: {
+                type: "circle"
+            },
+            opacity: {
+                value: 0.5,
+                random: true,
+            },
+            size: {
+                value: 3,
+                random: true,
+            },
+            links: {
+                enable: true,
+                distance: 150,
+                color: "#ffffff",
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 1,
+                direction: "none",
+                random: false,
+                straight: false,
+                out_mode: "out",
+                bounce: false,
+            }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: "repulse"
+                },
+                onclick: {
+                    enable: true,
+                    mode: "push"
+                },
+                resize: true
+            },
+            modes: {
+                repulse: {
+                    distance: 100
+                },
+                push: {
+                    quantity: 4
+                }
+            }
+        },
+        detectRetina: true,
+    });
 });

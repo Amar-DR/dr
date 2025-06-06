@@ -171,3 +171,13 @@ section[id]:target::before {
 .social-link:hover {
     color: #38BDF8; /* text-sky-400 */
 }
+
+/* Tambahkan styling untuk wadah partikel */
+#particles-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Pastikan partikel berada di belakang konten */
+}

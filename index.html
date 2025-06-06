@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>damarroja</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.12.0/tsparticles.slim.bundle.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,16 +25,16 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#hero" class="nav-link">Beranda</a>
-                        <a href="#about" class="nav-link">Tentang Saya</a>
-                        <a href="#projects" class="nav-link">Proyek</a>
-                        <a href="#skills" class="nav-link">Keahlian</a>
-                        <a href="#contact" class="nav-link">Kontak</a>
+                        <a href="#hero" class="nav-link">Home</a>
+                        <a href="#about" class="nav-link">About Me</a>
+                        <a href="#projects" class="nav-link">Projects</a>
+                        <a href="#skills" class="nav-link">Skills</a>
+                        <a href="#contact" class="nav-link">Contact</a>
                     </div>
                 </div>
                 <div class="md:hidden">
                     <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-                        <span class="sr-only">Buka menu utama</span>
+                        <span class="sr-only">Open main menu</span>
                         <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
@@ -47,53 +48,56 @@
 
         <div class="md:hidden hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#hero" class="nav-link block">Beranda</a>
-                <a href="#about" class="nav-link block">Tentang Saya</a>
-                <a href="#projects" class="nav-link block">Proyek</a>
-                <a href="#skills" class="nav-link block">Keahlian</a>
-                <a href="#contact" class="nav-link block">Kontak</a>
+                <a href="#hero" class="nav-link block">Home</a>
+                <a href="#about" class="nav-link block">About Me</a>
+                <a href="#projects" class="nav-link block">Projects</a>
+                <a href="#skills" class="nav-link block">Skills</a>
+                <a href="#contact" class="nav-link block">Contact</a>
             </div>
         </div>
     </header>
 
-    <main class="pt-20"> <section id="hero" class="min-h-screen flex items-center bg-gray-900">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <img src="https://placehold.co/150x150/3B82F6/FFFFFF?text=Foto+Anda" alt="Foto Anda" class="w-32 h-32 sm:w-40 sm:h-40 rounded-full mx-auto mb-8 shadow-xl border-4 border-sky-500">
+    <main class="pt-20">
+        <section id="hero" class="min-h-screen flex items-center bg-gray-900 relative">
+            <div id="particles-background"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+                <img src="https://placehold.co/150x150/3B82F6/FFFFFF?text=Your+Photo" alt="Your Photo" class="w-32 h-32 sm:w-40 sm:h-40 rounded-full mx-auto mb-8 shadow-xl border-4 border-sky-500">
                 <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4">
-                    Halo, saya <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-600"> <br> Muhammad Amar Damar Roja </span>
+                    Hello, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-600">  Amar </span>
                 </h1>
                 <div class="text-xl sm:text-2xl md:text-3xl text-gray-400 mb-8 h-10 sm:h-12">
                     <span id="typing-text-placeholder" class="typing-effect-container"></span>
                 </div>
                 <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10">
-                    Saya seorang [Profesi Anda, misal: Pengembang Web, Desainer Grafis, Penulis Konten] dengan semangat untuk menciptakan solusi digital yang inovatif dan menarik.
+                   I create meaningful digital solutions through design, code, and cloud technology. I'm the founder of LoxiStudio, specializing in intuitive UX, modern Java applications, and future-ready innovations.
                 </p>
                 <div>
-                    <a href="#projects" class="btn-primary mr-0 mb-4 sm:mr-4 sm:mb-0">Lihat Proyek Saya</a>
-                    <a href="#contact" class="btn-secondary">Hubungi Saya</a>
+                    <a href="#projects" class="btn-primary mr-0 mb-4 sm:mr-4 sm:mb-0">View My Projects</a>
+                    <a href="#contact" class="btn-secondary">Contact Me</a>
                 </div>
             </div>
         </section>
 
         <section id="about" class="py-16 sm:py-24 bg-gray-800">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="section-title">Tentang Saya</h2>
+                <h2 class="section-title">About Me</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <img src="https://placehold.co/600x400/1F2937/E5E7EB?text=Tentang+Saya" alt="Tentang Saya" class="rounded-lg shadow-xl w-full">
+                        <img src="https://placehold.co/600x400/1F2937/E5E7EB?text=About+Me" alt="About Me" class="rounded-lg shadow-xl w-full">
                     </div>
                     <div class="text-lg text-gray-300 space-y-6">
                         <p>
-                            Selamat datang di website pribadi saya! Saya [Nama Panggilan Anda], seorang profesional yang berdedikasi di bidang [Bidang Keahlian Anda]. Dengan pengalaman lebih dari [X] tahun, saya telah mengembangkan berbagai keahlian dalam [Sebutkan beberapa keahlian utama].
+                            I'm Amar, a passionate UI/UX Designer and Developer committed to bridging design elegance with powerful functionality. I’m studying Telecommunications Engineering at PENS, with a fast-track Master’s pathway to Taiwan.
                         </p>
                         <p>
-                            Saya percaya bahwa [Filosofi kerja atau nilai yang Anda pegang]. Saya selalu antusias untuk belajar hal baru dan menghadapi tantangan yang dapat mengembangkan kemampuan saya lebih jauh.
+                          I bring ideas to life through user-focused design, Java development, and cutting-edge IoT projects with ESP32. I also lead LoxiStudio — a creative hub for functional and beautiful interfaces.
                         </p>
                         <p>
-                            Di luar pekerjaan, saya menikmati [Hobi atau minat Anda]. Jika Anda tertarik untuk berkolaborasi atau ingin tahu lebih banyak, jangan ragu untuk menghubungi saya!
+                            Beyond the tech world, I’m actively engaged in finance and investing combining market insights, strategic asset growth, and a deep interest in cloud based innovations.
                         </p>
                         <a href="path/to/your/cv.pdf" target="_blank" class="btn-primary inline-flex items-center">
-                            <ion-icon name="download-outline" class="mr-2"></ion-icon> Unduh CV Saya
+                            <ion-icon name="download-outline" class="mr-2"></ion-icon> Download My CV
                         </a>
                     </div>
                 </div>
@@ -102,42 +106,42 @@
 
         <section id="projects" class="py-16 sm:py-24 bg-gray-900">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="section-title">Proyek Unggulan</h2>
+                <h2 class="section-title">Featured Projects</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="card">
-                        <img src="https://placehold.co/600x400/374151/E5E7EB?text=Proyek+1" alt="Nama Proyek 1" class="w-full h-48 object-cover rounded-t-lg mb-4">
-                        <h3 class="text-2xl font-semibold mb-2 text-sky-400">Nama Proyek 1</h3>
-                        <p class="text-gray-400 mb-4 text-sm">Deskripsi singkat tentang proyek ini, teknologi yang digunakan, dan peran Anda.</p>
+                        <img src="https://placehold.co/600x400/374151/E5E7EB?text=Project+1" alt="Project Name 1" class="w-full h-48 object-cover rounded-t-lg mb-4">
+                        <h3 class="text-2xl font-semibold mb-2 text-sky-400">Project Name 1</h3>
+                        <p class="text-gray-400 mb-4 text-sm">A brief description of this project, the technologies used, and your role.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-sky-700 text-sky-200 text-xs font-semibold px-2.5 py-0.5 rounded-full">Teknologi 1</span>
-                            <span class="bg-sky-700 text-sky-200 text-xs font-semibold px-2.5 py-0.5 rounded-full">Teknologi 2</span>
+                            <span class="bg-sky-700 text-sky-200 text-xs font-semibold px-2.5 py-0.5 rounded-full">Tech 1</span>
+                            <span class="bg-sky-700 text-sky-200 text-xs font-semibold px-2.5 py-0.5 rounded-full">Tech 2</span>
                         </div>
                         <a href="#" target="_blank" class="text-blue-400 hover:text-blue-300 font-medium inline-flex items-center">
-                            Lihat Detail <ion-icon name="arrow-forward-outline" class="ml-1"></ion-icon>
+                            View Details <ion-icon name="arrow-forward-outline" class="ml-1"></ion-icon>
                         </a>
                     </div>
                     <div class="card">
-                        <img src="https://placehold.co/600x400/374151/E5E7EB?text=Proyek+2" alt="Nama Proyek 2" class="w-full h-48 object-cover rounded-t-lg mb-4">
-                        <h3 class="text-2xl font-semibold mb-2 text-sky-400">Nama Proyek 2</h3>
-                        <p class="text-gray-400 mb-4 text-sm">Deskripsi singkat tentang proyek ini, apa yang membuatnya menarik, dan hasil yang dicapai.</p>
+                        <img src="https://placehold.co/600x400/374151/E5E7EB?text=Project+2" alt="Project Name 2" class="w-full h-48 object-cover rounded-t-lg mb-4">
+                        <h3 class="text-2xl font-semibold mb-2 text-sky-400">Project Name 2</h3>
+                        <p class="text-gray-400 mb-4 text-sm">A brief description of this project, what makes it interesting, and the results achieved.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-sky-700 text-sky-200 text-xs font-semibold px-2.5 py-0.5 rounded-full">Teknologi A</span>
-                            <span class="bg-sky-700 text-sky-200 text-xs font-semibold px-2.5 py-0.5 rounded-full">Teknologi B</span>
+                            <span class="bg-sky-700 text-sky-200 text-xs font-semibold px-2.5 py-0.5 rounded-full">Tech A</span>
+                            <span class="bg-sky-700 text-sky-200 text-xs font-semibold px-2.5 py-0.5 rounded-full">Tech B</span>
                         </div>
                         <a href="#" target="_blank" class="text-blue-400 hover:text-blue-300 font-medium inline-flex items-center">
-                            Kunjungi Situs <ion-icon name="open-outline" class="ml-1"></ion-icon>
+                            Visit Site <ion-icon name="open-outline" class="ml-1"></ion-icon>
                         </a>
                     </div>
                     <div class="card">
-                        <img src="https://placehold.co/600x400/374151/E5E7EB?text=Proyek+3" alt="Nama Proyek 3" class="w-full h-48 object-cover rounded-t-lg mb-4">
-                        <h3 class="text-2xl font-semibold mb-2 text-sky-400">Nama Proyek 3</h3>
-                        <p class="text-gray-400 mb-4 text-sm">Deskripsi singkat mengenai kontribusi Anda pada proyek ini dan tantangan yang dihadapi.</p>
+                        <img src="https://placehold.co/600x400/374151/E5E7EB?text=Project+3" alt="Project Name 3" class="w-full h-48 object-cover rounded-t-lg mb-4">
+                        <h3 class="text-2xl font-semibold mb-2 text-sky-400">Project Name 3</h3>
+                        <p class="text-gray-400 mb-4 text-sm">A brief description of your contribution to this project and the challenges faced.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-sky-700 text-sky-200 text-xs font-semibold px-2.5 py-0.5 rounded-full">Framework X</span>
                             <span class="bg-sky-700 text-sky-200 text-xs font-semibold px-2.5 py-0.5 rounded-full">Library Y</span>
                         </div>
                         <a href="#" target="_blank" class="text-blue-400 hover:text-blue-300 font-medium inline-flex items-center">
-                            Lihat di GitHub <ion-icon name="logo-github" class="ml-1"></ion-icon>
+                            View on GitHub <ion-icon name="logo-github" class="ml-1"></ion-icon>
                         </a>
                     </div>
                 </div>
@@ -146,7 +150,7 @@
 
         <section id="skills" class="py-16 sm:py-24 bg-gray-800">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="section-title">Keahlian Saya</h2>
+                <h2 class="section-title">My Skills</h2>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 text-center">
                     <div class="skill-card">
                         <ion-icon name="logo-html5" class="text-5xl sm:text-6xl text-orange-500 mb-2"></ion-icon>
@@ -186,17 +190,17 @@
 
         <section id="contact" class="py-16 sm:py-24 bg-gray-900">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="section-title">Hubungi Saya</h2>
+                <h2 class="section-title">Get In Touch</h2>
                 <div class="max-w-lg mx-auto text-center">
                     <p class="text-lg text-gray-400 mb-8">
-                        Tertarik untuk berdiskusi lebih lanjut, berkolaborasi dalam proyek, atau sekadar menyapa? Jangan ragu untuk menghubungi saya melalui salah satu cara di bawah ini.
+                        Interested in discussing further, collaborating on a project, or just saying hello? Don't hesitate to contact me through one of the methods below.
                     </p>
                     <div class="mb-8">
-                         <a href="mailto:emailanda@example.com" class="btn-primary inline-flex items-center text-lg">
-                            <ion-icon name="mail-outline" class="mr-2"></ion-icon> Kirim Email
+                         <a href="mailto:youremail@example.com" class="btn-primary inline-flex items-center text-lg">
+                            <ion-icon name="mail-outline" class="mr-2"></ion-icon> Send an Email
                         </a>
                     </div>
-                    <p class="text-gray-400 mb-4">Atau temukan saya di media sosial:</p>
+                    <p class="text-gray-400 mb-4">Or find me on social media:</p>
                     <div class="flex justify-center space-x-6">
                         <a href="#" target="_blank" class="social-link">
                             <ion-icon name="logo-linkedin" class="text-4xl"></ion-icon>
@@ -219,8 +223,8 @@
 
     <footer class="bg-gray-800 border-t border-gray-700">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-gray-400">
-            <p>&copy; <span id="currentYear"></span> [Nama Anda]. Semua hak dilindungi.</p>
-            <p class="text-sm mt-1">Dibuat dengan <ion-icon name="heart" class="text-red-500 inline-block"></ion-icon> menggunakan Tailwind CSS.</p>
+            <p>&copy; <span id="currentYear"></span> [Your Name]. All rights reserved.</p>
+            <p class="text-sm mt-1">Made with <ion-icon name="heart" class="text-red-500 inline-block"></ion-icon> using Tailwind CSS.</p>
         </div>
     </footer>
 
