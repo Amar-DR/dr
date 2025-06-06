@@ -1,5 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Script untuk menu mobile
+    // ================== Script Loading Screen ==================
+    const preloader = document.getElementById('preloader');
+    const mainContent = document.getElementById('main-content');
+    
+    // Durasi loading screen dalam milidetik (misal: 3000ms = 3 detik)
+    setTimeout(() => {
+        if (preloader) {
+            preloader.classList.add('hidden');
+        }
+        if (mainContent) {
+            mainContent.classList.remove('hidden');
+            // Tambahkan animasi fade-in untuk konten utama jika diinginkan
+            mainContent.style.opacity = '0';
+            setTimeout(() => {
+                mainContent.style.transition = 'opacity 0.5s ease-in';
+                mainContent.style.opacity = '1';
+            }, 50);
+        }
+    }, 3000);
+    
+
+    // ================== Script Menu Mobile ==================
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelectorAll('#mobile-menu a[href^="#"], header nav a[href^="#"]');
@@ -18,20 +39,20 @@ document.addEventListener('DOMContentLoaded', function() {
                     mobileMenuButton.setAttribute('aria-expanded', 'false');
                     mobileMenu.classList.add('hidden');
                     const svgs = mobileMenuButton.querySelectorAll('svg');
-                    svgs[0].classList.remove('hidden'); // Burger icon
-                    svgs[1].classList.add('hidden'); // Close icon
+                    svgs[0].classList.remove('hidden');
+                    svgs[1].classList.add('hidden');
                 }
             });
         });
     }
 
-    // Set tahun saat ini di footer
+    // ================== Set Tahun di Footer ==================
     const currentYearElement = document.getElementById('currentYear');
     if (currentYearElement) {
         currentYearElement.textContent = new Date().getFullYear();
     }
 
-    // Efek ketik untuk Hero Section
+    // ================== Efek Ketik ==================
     const typingTextPlaceholder = document.getElementById('typing-text-placeholder');
     const roles = [
         "Tech Explorer",
@@ -79,10 +100,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (roles.length > 0 && typingTextPlaceholder) {
-        setTimeout(type, 1000);
+        // Mulai mengetik setelah loading screen selesai + jeda singkat
+        setTimeout(type, 3500); 
     }
 
-    // Script untuk menandai link navigasi aktif
+    // ================== Navigasi Aktif saat Scroll ==================
     const sections = document.querySelectorAll('main section[id]');
     const headerNavLinksDesktop = document.querySelectorAll('header .hidden.md\\:block .nav-link');
     const headerNavLinksMobile = document.querySelectorAll('#mobile-menu .nav-link');
@@ -116,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', onScroll);
     onScroll();
 
-    // Inisialisasi tsParticles
+    // ================== Inisialisasi Partikel ==================
     tsParticles.load("particles-background", {
         fpsLimit: 60,
         particles: {

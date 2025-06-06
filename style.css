@@ -7,177 +7,205 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* ================== Animasi Loading Screen ================== */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #111827; /* Warna latar belakang sama dengan body */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content {
+    text-align: center;
+}
+
+.preloader-logo {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #38BDF8; /* Warna aksen biru langit */
+    animation: fadeInUp 1.5s ease-out forwards;
+    opacity: 0;
+}
+
+.preloader-tagline {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    color: #9CA3AF; /* text-gray-400 */
+    animation: fadeInUp 1.5s ease-out 0.5s forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================== Gaya Utama Website ================== */
 /* Gaya untuk link navigasi */
 .nav-link {
-    padding: 0.5rem 0.75rem; /* Tailwind px-3 py-2 */
-    border-radius: 0.375rem; /* Tailwind rounded-md */
-    font-size: 0.875rem; /* Tailwind text-sm */
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
     line-height: 1.25rem;
-    font-weight: 500; /* Tailwind font-medium */
-    color: #D1D5DB; /* Tailwind text-gray-300 */
-    transition-property: color, background-color;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
+    font-weight: 500;
+    color: #D1D5DB;
+    transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1), background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link:hover {
-    background-color: #374151; /* Tailwind hover:bg-gray-700 */
-    color: #ffffff; /* Tailwind hover:text-white */
+    background-color: #374151;
+    color: #ffffff;
 }
 
-/* Gaya untuk link navigasi yang aktif (digunakan oleh JS) */
 .nav-link-active {
-    /* background-color: #111827; Tailwind bg-gray-900 (sesuaikan jika perlu warna berbeda) */
-    color: #38BDF8 !important; /* Tailwind text-sky-400 atau warna aksen lain */
+    color: #38BDF8 !important;
     font-weight: 600;
 }
 
-/* Gaya untuk judul bagian */
 .section-title {
-    font-size: 2.25rem; /* Tailwind text-3xl */
+    font-size: 2.25rem;
     line-height: 2.5rem;
-    font-weight: 700; /* Tailwind font-bold */
+    font-weight: 700;
     text-align: center;
-    margin-bottom: 3rem; /* Tailwind mb-12 */
+    margin-bottom: 3rem;
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
-    background-image: linear-gradient(to right, #38BDF8, #2563EB); /* Tailwind from-sky-400 to-blue-600 */
+    background-image: linear-gradient(to right, #38BDF8, #2563EB);
 }
 
-@media (min-width: 640px) { /* Tailwind sm: */
+@media (min-width: 640px) {
     .section-title {
-        font-size: 2.25rem; /* Tailwind sm:text-4xl (seharusnya 2.25rem untuk 4xl adalah 36px) -> saya revisi jadi 2.25rem (text-3xl) dan 2.5rem (text-4xl) untuk heading */
+        font-size: 2.25rem;
         line-height: 2.5rem;
     }
 }
-@media (min-width: 640px) { /* sm */
-    .section-title {
-        font-size: 2.25rem; /* 36px */
-        line-height: 2.5rem; /* 40px */
-    }
-}
 
-
-/* Gaya untuk kartu (proyek dan keahlian) */
 .card {
-    background-color: #1F2937; /* Tailwind bg-gray-800 */
-    padding: 1.5rem; /* Tailwind p-6 */
-    border-radius: 0.5rem; /* Tailwind rounded-lg */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Tailwind shadow-xl */
-    transition-property: box-shadow, transform;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
+    background-color: #1F2937;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Tailwind hover:shadow-2xl */
-    transform: scale(1.05); /* Efek scale pada hover */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: scale(1.05);
 }
 
 .skill-card {
-    background-color: #1F2937; /* bg-gray-800 */
-    padding: 1rem; /* p-4 */
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); /* shadow-xl */
+    background-color: #1F2937;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     transition: transform 0.3s ease-in-out;
 }
+
 .skill-card:hover {
     transform: translateY(-5px);
 }
 
-@media (min-width: 640px) { /* sm */
+@media (min-width: 640px) {
     .skill-card {
-        padding: 1.5rem; /* sm:p-6 */
+        padding: 1.5rem;
     }
 }
 
-
-/* Gaya untuk tombol utama */
 .btn-primary {
     display: inline-block;
     color: #ffffff;
-    font-weight: 600; /* Tailwind font-semibold */
-    padding: 0.75rem 1.5rem; /* Tailwind py-3 px-6 */
-    border-radius: 0.5rem; /* Tailwind rounded-lg */
-    background-image: linear-gradient(to right, #0EA5E9, #2563EB); /* Tailwind from-sky-500 to-blue-600 */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Tailwind shadow-md */
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    background-image: linear-gradient(to right, #0EA5E9, #2563EB);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: center;
 }
 
 .btn-primary:hover {
-    background-image: linear-gradient(to right, #0284C7, #1D4ED8); /* Tailwind hover:from-sky-600 hover:to-blue-700 */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Tailwind hover:shadow-lg */
+    background-image: linear-gradient(to right, #0284C7, #1D4ED8);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     transform: scale(1.05);
 }
 
-/* Gaya untuk tombol sekunder */
 .btn-secondary {
     display: inline-block;
-    background-color: #374151; /* Tailwind bg-gray-700 */
-    color: #E5E7EB; /* Tailwind text-gray-200 */
-    font-weight: 600; /* Tailwind font-semibold */
-    padding: 0.75rem 1.5rem; /* Tailwind py-3 px-6 */
-    border-radius: 0.5rem; /* Tailwind rounded-lg */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Tailwind shadow-md */
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
+    background-color: #374151;
+    color: #E5E7EB;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-secondary:hover {
-    background-color: #4B5563; /* Tailwind hover:bg-gray-600 */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Tailwind hover:shadow-lg */
+    background-color: #4B5563;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* Efek ketik animasi */
-.typing-effect-container span { /* Targetkan span di dalam container */
-    border-right: .15em solid #60A5FA; /* Warna kursor (biru muda - Tailwind sky-400) */
+.typing-effect-container span {
+    border-right: .15em solid #60A5FA;
     white-space: nowrap;
     overflow: hidden;
-    /* Animasi akan dikontrol oleh JavaScript */
 }
-/* Keyframes untuk blink-caret (jika ingin tetap via CSS) */
+
 @keyframes blink-caret-kf {
     from, to { border-color: transparent }
-    50% { border-color: #60A5FA; } /* Warna kursor */
+    50% { border-color: #60A5FA; }
 }
-.typing-effect-container span.typing-cursor { /* Kelas untuk kursor yang berkedip */
+
+.typing-effect-container span.typing-cursor {
     animation: blink-caret-kf .75s step-end infinite;
 }
 
-
-/* Smooth scroll offset untuk fixed navbar */
-/* Pastikan :target ada di elemen section yang menjadi tujuan */
 section[id]:target::before {
     content: "";
     display: block;
-    height: 80px; /* Sesuaikan dengan tinggi navbar Anda (h-20 di Tailwind adalah 5rem = 80px) */
-    margin-top: -80px; /* Sesuaikan dengan tinggi navbar Anda */
+    height: 80px;
+    margin-top: -80px;
     visibility: hidden;
 }
 
 .social-link {
-    color: #9CA3AF; /* text-gray-400 */
+    color: #9CA3AF;
     transition: color 0.2s ease-in-out;
 }
+
 .social-link:hover {
-    color: #38BDF8; /* text-sky-400 */
+    color: #38BDF8;
 }
 
-/* Tambahkan styling untuk wadah partikel */
 #particles-background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0; /* Pastikan partikel berada di belakang konten */
+    z-index: 0;
 }
