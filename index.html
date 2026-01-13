@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>root@damarroja:~#</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="scanlines"></div>
+
+    <header>
+        <div class="container navbar">
+            <div class="brand">
+                <span class="prompt">root@damarroja:~#</span> <span class="cursor">_</span>
+            </div>
+            <nav>
+                <a href="#portfolio">[ ./projects ]</a>
+                <a href="#resume">[ ./resume ]</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="container">
+        <div class="hero-content">
+            <p class="sys-msg">> SYSTEM READY...</p>
+            <p class="sys-msg">> AUTHENTICATED AS GUEST...</p>
+            <br>
+            <h1>HELLO, I AM DAMARROJA.</h1>
+            <h2 class="typing-container">
+                I am a <span class="typing-text" id="typing-text"></span><span class="cursor">|</span>
+            </h2>
+        </div>
+    </section>
+
+    <section id="portfolio" class="container">
+        <h3 class="section-title">>> LIST DIRECTORY /PROJECTS</h3>
+        
+        <div class="grid-layout">
+            <div class="card">
+                <div class="card-header">
+                    <span class="file-icon">FILE:</span> chili_monitor.iot
+                </div>
+                <div class="card-body">
+                    <h4>IoT Chili Monitoring</h4>
+                    <p>Real-time humidity and temperature monitoring system for chili plants utilizing ESP32 architecture and MQTT Protocol.</p>
+                    <div class="tags">
+                        <span>[C++]</span> <span>[MQTT]</span> <span>[IoT]</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="file-icon">EXEC:</span> solver.jar
+                </div>
+                <div class="card-body">
+                    <h4>Gaussian Solver Java</h4>
+                    <p>Java Swing GUI application designed to solve linear equation systems via the Gaussian Elimination algorithm.</p>
+                    <div class="tags">
+                        <span>[Java]</span> <span>[Swing]</span> <span>[Math]</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="file-icon">DIR:</span> /mikrotik_lab
+                </div>
+                <div class="card-body">
+                    <h4>MikroTik Lab Config</h4>
+                    <p>Comprehensive documentation and configuration scripts implementing OSPF routing and firewall filters for medium-scale networks.</p>
+                    <div class="tags">
+                        <span>[RouterOS]</span> <span>[Network]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume" class="container">
+        <h3 class="section-title">>> CAT /VAR/LOG/RESUME.TXT</h3>
+
+        <div class="resume-grid">
+            
+            <div class="resume-box">
+                <h3 class="box-title">[ EDUCATION_PATH ]</h3>
+                <div class="box-content">
+                    <div class="resume-item">
+                        <span class="time-badge">2024 - NOW</span>
+                        <h4>PENS (Electronic Engineering Polytechnic Institute of Surabaya)</h4>
+                        <p>D4 Telecommunication Engineering</p>
+                        <small>> Status: Active Student (Sem 4)</small>
+                    </div>
+                    <div class="resume-item">
+                        <span class="time-badge">2021 - 2024</span>
+                        <h4>SMKN 1 Surabaya</h4>
+                        <p>Computer & Network Engineering</p>
+                        <small>> Status: Graduated</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-box">
+                <h3 class="box-title">[ SUDO AUTH_KEYS ]</h3>
+                <div class="box-content">
+                    <div class="cert-item">
+                        <span class="status-indicator valid"></span>
+                        <div class="cert-details">
+                            <h4>MTCNA</h4>
+                            <p>MikroTik Certified Network Associate</p>
+                            <small>> ID: VALIDATED</small>
+                        </div>
+                    </div>
+                    <div class="cert-item">
+                        <span class="status-indicator valid"></span>
+                        <div class="cert-details">
+                            <h4>Data Center Technical Support Junior</h4>
+                            <p>Indonesian Professional Certification Authority (BNSP)</p>
+                            <small>> ID: VALIDATED</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="resume-full-width">
+            <h3 class="box-title neon-text">>> RUNTIME_LOGS: HISTORY (EXPERIENCE)</h3>
+            
+            <div class="xp-card">
+                <div class="xp-header">
+                    <h4>Internship</h4>
+                    <span class="xp-date">[ Oct 2022 - March 2023 ]</span>
+                </div>
+                <p class="xp-loc">@ CV Bintang Karya Nusantara (Network Engineer)</p>
+                
+                <ul class="cmd-list">
+                    <li>Implemented an IoT-based water pressure control system at PDAM Surabaya.</li>
+                    <li>Managed CCTV maintenance for the Sidoarjo Transportation Department, ensuring stable surveillance and network reliability.</li>
+                    <li>Installed and optimized Ethernet outlets at Tanjung Perak Port (Nilam Pier) to enhance network connectivity.</li>
+                </ul>
+            </div>
+
+            <div class="xp-card">
+                <div class="xp-header">
+                    <h4>Student Organization (PENS)</h4>
+                    <span class="xp-date">[ August 2025 - Now ]</span>
+                </div>
+                <p class="xp-loc">@ Dirgantara Functionary (Creative Economy Division)</p>
+                
+                <ul class="cmd-list">
+                    <li>Managed financial records and budgeting for creative economy initiatives.</li>
+                    <li>Coordinated fundraising and merchandise projects to support organization funding.</li>
+                    <li>Ensured transparent financial reporting and efficient fund allocation for events.</li>
+                </ul>
+            </div>
+            
+            <div class="action-area">
+                <button class="retro-btn" onclick="alert('Downloading dummy_cv.pdf...')">
+                    [ EXPORT_LOGS_TO_PDF ]
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Connection established. &copy; 2026 Damarroja.</p>
+            <div class="socials">
+                <a href="#">GITHUB</a> :: <a href="https://www.instagram.com/damarroja">INSTAGRAM</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,207 +1,55 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // ================== Script Loading Screen ==================
-    const preloader = document.getElementById('preloader');
-    const mainContent = document.getElementById('main-content');
-    
-    // Durasi loading screen dalam milidetik (misal: 3000ms = 3 detik)
-    setTimeout(() => {
-        if (preloader) {
-            preloader.classList.add('hidden');
-        }
-        if (mainContent) {
-            mainContent.classList.remove('hidden');
-            // Tambahkan animasi fade-in untuk konten utama jika diinginkan
-            mainContent.style.opacity = '0';
-            setTimeout(() => {
-                mainContent.style.transition = 'opacity 0.5s ease-in';
-                mainContent.style.opacity = '1';
-            }, 50);
-        }
-    }, 3000);
-    
+// Array kata-kata yang ingin ditampilkan bergantian
+const texts = [
+    "Network Engineer",
+    "IoT Enthusiast",
+    "Tech Explorer",
+    "PENS Student"
+];
 
-    // ================== Script Menu Mobile ==================
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.querySelectorAll('#mobile-menu a[href^="#"], header nav a[href^="#"]');
+// Konfigurasi kecepatan (dalam milidetik)
+const typingSpeed = 100; 
+const deletingSpeed = 50; 
+const delayBetweenTexts = 2000; // Jeda sebelum menghapus
 
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-            const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
-            mobileMenuButton.setAttribute('aria-expanded', !expanded);
-            mobileMenu.classList.toggle('hidden');
-            mobileMenuButton.querySelectorAll('svg').forEach(svg => svg.classList.toggle('hidden'));
-        });
+const textElement = document.getElementById('typing-text');
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenuButton.setAttribute('aria-expanded', 'false');
-                    mobileMenu.classList.add('hidden');
-                    const svgs = mobileMenuButton.querySelectorAll('svg');
-                    svgs[0].classList.remove('hidden');
-                    svgs[1].classList.add('hidden');
-                }
-            });
-        });
+function type() {
+    const currentText = texts[textIndex];
+
+    if (isDeleting) {
+        // Logika Menghapus
+        textElement.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        // Logika Mengetik
+        textElement.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
     }
 
-    // ================== Set Tahun di Footer ==================
-    const currentYearElement = document.getElementById('currentYear');
-    if (currentYearElement) {
-        currentYearElement.textContent = new Date().getFullYear();
+    // Mengatur kecepatan dinamis
+    let typeSpeed = isDeleting ? deletingSpeed : typingSpeed;
+
+    // Jika kata selesai diketik
+    if (!isDeleting && charIndex === currentText.length) {
+        typeSpeed = delayBetweenTexts; // Tunggu sebentar sebelum menghapus
+        isDeleting = true;
+    } 
+    // Jika kata selesai dihapus
+    else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex++; // Pindah ke kata berikutnya
+        // Jika sudah di akhir array, kembali ke awal (looping)
+        if (textIndex === texts.length) {
+            textIndex = 0;
+        }
     }
 
-    // ================== Efek Ketik ==================
-    const typingTextPlaceholder = document.getElementById('typing-text-placeholder');
-    const roles = [
-        "Tech Explorer",
-        "UI/UX Designer",
-        "Cloud Enthusiast",
-        "Java Developer"
-    ];
-    let roleIndex = 0;
-    let charIndex = 0;
-    let currentText = '';
-    let isDeleting = false;
+    // Jalankan fungsi ini lagi setelah waktu (typeSpeed)
+    setTimeout(type, typeSpeed);
+}
 
-    function type() {
-        if (!typingTextPlaceholder) return;
-
-        const fullText = roles[roleIndex];
-        if (isDeleting) {
-            currentText = fullText.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            currentText = fullText.substring(0, charIndex + 1);
-            charIndex++;
-        }
-
-        typingTextPlaceholder.innerHTML = `<span>${currentText}</span><span class="typing-cursor"></span>`;
-        if (!isDeleting && charIndex === fullText.length) {
-            typingTextPlaceholder.innerHTML = `<span>${currentText}</span>`;
-        }
-
-        let typeSpeed = 150;
-        if (isDeleting) {
-            typeSpeed /= 2;
-        }
-
-        if (!isDeleting && charIndex === fullText.length) {
-            typeSpeed = 2000;
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            roleIndex = (roleIndex + 1) % roles.length;
-            typeSpeed = 500;
-        }
-
-        setTimeout(type, typeSpeed);
-    }
-
-    if (roles.length > 0 && typingTextPlaceholder) {
-        // Mulai mengetik setelah loading screen selesai + jeda singkat
-        setTimeout(type, 3500); 
-    }
-
-    // ================== Navigasi Aktif saat Scroll ==================
-    const sections = document.querySelectorAll('main section[id]');
-    const headerNavLinksDesktop = document.querySelectorAll('header .hidden.md\\:block .nav-link');
-    const headerNavLinksMobile = document.querySelectorAll('#mobile-menu .nav-link');
-
-    function onScroll() {
-        let currentSectionId = '';
-        const headerHeight = document.querySelector('header') ? document.querySelector('header').offsetHeight : 80;
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (pageYOffset >= sectionTop - (headerHeight + 40)) {
-                currentSectionId = section.getAttribute('id');
-            }
-        });
-
-        headerNavLinksDesktop.forEach(link => {
-            link.classList.remove('nav-link-active');
-            if (link.getAttribute('href') === `#${currentSectionId}`) {
-                link.classList.add('nav-link-active');
-            }
-        });
-
-        headerNavLinksMobile.forEach(link => {
-            link.classList.remove('nav-link-active');
-            if (link.getAttribute('href') === `#${currentSectionId}`) {
-                link.classList.add('nav-link-active');
-            }
-        });
-    }
-
-    window.addEventListener('scroll', onScroll);
-    onScroll();
-
-    // ================== Inisialisasi Partikel ==================
-    tsParticles.load("particles-background", {
-        fpsLimit: 60,
-        particles: {
-            number: {
-                value: 80,
-                density: {
-                    enable: true,
-                    value_area: 800
-                }
-            },
-            color: {
-                value: "#ffffff"
-            },
-            shape: {
-                type: "circle"
-            },
-            opacity: {
-                value: 0.5,
-                random: true,
-            },
-            size: {
-                value: 3,
-                random: true,
-            },
-            links: {
-                enable: true,
-                distance: 150,
-                color: "#ffffff",
-                opacity: 0.4,
-                width: 1
-            },
-            move: {
-                enable: true,
-                speed: 1,
-                direction: "none",
-                random: false,
-                straight: false,
-                out_mode: "out",
-                bounce: false,
-            }
-        },
-        interactivity: {
-            detect_on: "canvas",
-            events: {
-                onhover: {
-                    enable: true,
-                    mode: "repulse"
-                },
-                onclick: {
-                    enable: true,
-                    mode: "push"
-                },
-                resize: true
-            },
-            modes: {
-                repulse: {
-                    distance: 100
-                },
-                push: {
-                    quantity: 4
-                }
-            }
-        },
-        detectRetina: true,
-    });
-});
+// Jalankan saat website selesai loading
+document.addEventListener('DOMContentLoaded', type);
