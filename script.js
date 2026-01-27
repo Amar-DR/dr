@@ -20,36 +20,28 @@ function type() {
     const currentText = texts[textIndex];
 
     if (isDeleting) {
-        // Logika Menghapus
         textElement.textContent = currentText.substring(0, charIndex - 1);
         charIndex--;
     } else {
-        // Logika Mengetik
         textElement.textContent = currentText.substring(0, charIndex + 1);
         charIndex++;
     }
 
-    // Mengatur kecepatan dinamis
     let typeSpeed = isDeleting ? deletingSpeed : typingSpeed;
 
-    // Jika kata selesai diketik
     if (!isDeleting && charIndex === currentText.length) {
-        typeSpeed = delayBetweenTexts; // Tunggu sebentar sebelum menghapus
+        typeSpeed = delayBetweenTexts;
         isDeleting = true;
     } 
-    // Jika kata selesai dihapus
     else if (isDeleting && charIndex === 0) {
         isDeleting = false;
-        textIndex++; // Pindah ke kata berikutnya
-        // Jika sudah di akhir array, kembali ke awal (looping)
+        textIndex++;
         if (textIndex === texts.length) {
             textIndex = 0;
         }
     }
 
-    // Jalankan fungsi ini lagi setelah waktu (typeSpeed)
     setTimeout(type, typeSpeed);
 }
 
-// Jalankan saat website selesai loading
 document.addEventListener('DOMContentLoaded', type);

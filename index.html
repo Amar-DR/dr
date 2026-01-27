@@ -3,91 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="T-mNPGGaOux-JUqLCa8sP74H__vC5CJB21IhIyZMGdI" />
-    
-    <title>Muhammad Amar Damar Roja</title>
+    <title>Amar</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="scanlines"></div>
+    <div class="bg-gradient"></div>
 
     <header>
         <div class="container navbar">
             <div class="brand">
-                <span class="prompt">root@damarroja:~#</span> <span class="cursor">_</span>
+                <span class="prompt">Muhammad Amar Damar Roja</span>
             </div>
             <nav>
-                <a href="#portfolio">[ ./projects ]</a>
-                <a href="#resume">[ ./resume ]</a>
+                <a href="#portfolio">Projects</a>
+                <a href="#resume">Resume</a>
             </nav>
         </div>
     </header>
 
     <section id="hero" class="container">
         <div class="hero-content">
-            <p class="sys-msg">> SYSTEM READY...</p>
-            <p class="sys-msg">> AUTHENTICATED AS GUEST...</p>
-            <br>
-            <h1>HELLO, I AM AMAR.</h1>
+            <div class="badge-status">
+                <span class="dot"></span> System Ready
+            </div>
+            <h1>Hello, I am Amar.</h1>
             <h2 class="typing-container">
-                I am a <span class="typing-text" id="typing-text"></span><span class="cursor">|</span>
+                I am a <span class="typing-text highlight" id="typing-text"></span><span class="cursor">|</span>
             </h2>
+            <p class="hero-desc">
+                Specializing in Network Engineering, IoT Solutions, and Server Automation.
+            </p>
         </div>
     </section>
 
     <section id="portfolio" class="container">
-        <h3 class="section-title">>> LIST DIRECTORY /PROJECTS</h3>
+        <div class="section-header">
+            <h3 class="section-title">Selected Projects</h3>
+            <p class="section-subtitle">Directory: /projects</p>
+        </div>
         
         <div class="grid-layout">
             <div class="card">
-                <div class="card-header">
-                    <span class="file-icon">FILE:</span> chili_monitor.iot
-                </div>
                 <div class="card-image">
                     <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&q=80&w=400" alt="IoT Project">
-                    <div class="img-overlay"></div>
                 </div>
                 <div class="card-body">
+                    <div class="card-meta">FILE: chili_monitor.iot</div>
                     <h4>IoT Chili Monitoring</h4>
                     <p>Real-time humidity and temperature monitoring system for chili plants utilizing ESP32 architecture and MQTT Protocol.</p>
                     <div class="tags">
-                        <span>[C++]</span> <span>[MQTT]</span> <span>[IoT]</span>
+                        <span>C++</span> <span>MQTT</span> <span>IoT</span>
                     </div>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-header">
-                    <span class="file-icon">EXEC:</span> solver.jar
-                </div>
                 <div class="card-image">
                     <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=400" alt="Java Project">
-                    <div class="img-overlay"></div>
                 </div>
                 <div class="card-body">
+                    <div class="card-meta">EXEC: solver.jar</div>
                     <h4>Gaussian Solver Java</h4>
                     <p>Java Swing GUI application designed to solve linear equation systems via the Gaussian Elimination algorithm.</p>
                     <div class="tags">
-                        <span>[Java]</span> <span>[Swing]</span> <span>[Math]</span>
+                        <span>Java</span> <span>Swing</span> <span>Math</span>
                     </div>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-header">
-                    <span class="file-icon">DIR:</span> /mikrotik_lab
-                </div>
                 <div class="card-image">
                     <img src="https://images.unsplash.com/photo-1544197150-b99a580bbcbf?auto=format&fit=crop&q=80&w=400" alt="Network Project">
-                    <div class="img-overlay"></div>
                 </div>
                 <div class="card-body">
+                    <div class="card-meta">DIR: /mikrotik_lab</div>
                     <h4>MikroTik Lab Config</h4>
                     <p>Comprehensive documentation and configuration scripts implementing OSPF routing and firewall filters.</p>
                     <div class="tags">
-                        <span>[RouterOS]</span> <span>[Network]</span>
+                        <span>RouterOS</span> <span>Network</span>
                     </div>
                 </div>
             </div>
@@ -95,45 +90,56 @@
     </section>
 
     <section id="resume" class="container">
-        <h3 class="section-title">>> CAT /VAR/LOG/RESUME.TXT</h3>
+        <div class="section-header">
+            <h3 class="section-title">Professional Summary</h3>
+            <p class="section-subtitle">Cat /var/log/resume.txt</p>
+        </div>
 
         <div class="resume-grid">
             
             <div class="resume-box">
-                <h3 class="box-title">[ EDUCATION_PATH ]</h3>
+                <h3 class="box-title"><span class="icon">🎓</span> Education Path</h3>
                 <div class="box-content">
                     <div class="resume-item">
                         <span class="time-badge">2024 - NOW</span>
                         <h4>PENS (Electronic Engineering Polytechnic Institute of Surabaya)</h4>
                         <p>D4 Telecommunication Engineering</p>
-                        <small>> Status: Active Student (Sem 4)</small>
+                        <small class="status active">Status: Active Student (Sem 4)</small>
                     </div>
                     <div class="resume-item">
                         <span class="time-badge">2021 - 2024</span>
                         <h4>SMKN 1 Surabaya</h4>
                         <p>Computer & Network Engineering</p>
-                        <small>> Status: Graduated</small>
+                        <small class="status completed">Status: Graduated</small>
                     </div>
                 </div>
             </div>
 
             <div class="resume-box">
-                <h3 class="box-title">[ CERTIFICATION ]</h3>
+                <h3 class="box-title"><span class="icon">🔑</span> Certifications</h3>
                 <div class="box-content">
                     <div class="cert-item">
-                        <span class="status-indicator valid"></span>
+                        <div class="cert-icon valid">✓</div>
                         <div class="cert-details">
                             <h4>MTCNA</h4>
                             <p>MikroTik Certified Network Associate</p>
-                            <small>> ID: VALIDATED</small>
+                            <small>ID: VALIDATED</small>
                         </div>
                     </div>
                     <div class="cert-item">
-                        <span class="status-indicator valid"></span>
+                        <div class="cert-icon valid">✓</div>
                         <div class="cert-details">
                             <h4>Data Center Technical Support Junior</h4>
                             <p>BNSP Certification</p>
-                            <small>> ID: VALIDATED</small>
+                            <small>ID: VALIDATED</small>
+                        </div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon process">⟳</div>
+                        <div class="cert-details">
+                            <h4>HSK Level 1-2</h4>
+                            <p>Chinese Proficiency Test</p>
+                            <small class="processing">Process: In Progress...</small>
                         </div>
                     </div>
                 </div>
@@ -141,12 +147,12 @@
         </div>
 
         <div class="resume-full-width">
-            <h3 class="box-title neon-text">>> RUNTIME_LOGS: HISTORY (EXPERIENCE)</h3>
+            <h3 class="box-title">Experience History</h3>
             
             <div class="xp-card">
                 <div class="xp-header">
                     <h4>Internship</h4>
-                    <span class="xp-date">[ Oct 2022 - March 2023 ]</span>
+                    <span class="xp-date">Oct 2022 - March 2023</span>
                 </div>
                 <p class="xp-loc">@ CV Bintang Karya Nusantara (Network Engineer)</p>
                 
@@ -160,7 +166,7 @@
             <div class="xp-card">
                 <div class="xp-header">
                     <h4>Student Organization (PENS)</h4>
-                    <span class="xp-date">[ August 2025 - Now ]</span>
+                    <span class="xp-date">August 2025 - Now</span>
                 </div>
                 <p class="xp-loc">@ Dirgantara Functionary (Creative Economy Division)</p>
                 
@@ -171,8 +177,8 @@
             </div>
             
             <div class="action-area">
-                <button class="retro-btn" onclick="alert('Downloading CV...')">
-                    [ EXPORT_LOGS_TO_PDF ]
+                <button class="primary-btn" onclick="alert('Downloading CV...')">
+                    Download CV (PDF)
                 </button>
             </div>
         </div>
@@ -180,15 +186,14 @@
 
     <footer>
         <div class="container">
-            <p>Connection established. &copy; 2026 Damarroja.</p>
+            <p>&copy; 2026 Damarroja. Built with logic & creativity.</p>
             <div class="socials">
-                <a href="#">GITHUB</a> :: <a href="#">INSTAGRAM</a>
+                <a href="#">Github</a>
+                <a href="#">Instagram</a>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
-
 </html>
-
